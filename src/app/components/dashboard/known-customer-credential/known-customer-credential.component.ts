@@ -22,7 +22,7 @@ export class KnownCustomerCredentialComponent {
   lookupSigned: boolean | undefined = undefined;
 
   // Form data for issuing credential
-  did = 'did:dht:exampleDid';
+  did = 'did:dht:gkg4cus6hzj3cytan4qfr5zkwosydtdtfkkgy919tuiamzmdpkoy';;
   countryOfResidence = '';
   tier = 'Silver';
   jurisdiction = '';
