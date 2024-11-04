@@ -22,11 +22,11 @@ export class KnownCustomerCredentialComponent {
   lookupSigned: boolean | undefined = undefined;
 
   // Form data for issuing credential
-  did = 'did:dht:gkg4cus6hzj3cytan4qfr5zkwosydtdtfkkgy919tuiamzmdpkoy';;
-  countryOfResidence = '';
-  tier = 'Silver';
-  jurisdiction = '';
-  documentVerification = 'passport utility_bill driver_license';
+  did = 'did:dht:gkg4cus6hzj3cytan4qfr5zkwosydtdtfkkgy919tuiamzmdpkoy';
+  countryOfResidence = 'UK';
+  tier = '3';
+  jurisdiction = 'GB';
+  documentVerification = 'passport';
 
   // Credential data
   credential = '';
@@ -35,12 +35,14 @@ export class KnownCustomerCredentialComponent {
   // Request permission to deliver credential
   async requestPermission() {
     this.permissionRequested = true;
+
     try {
       await this.dwnService.authorizeToWrite(this.identity.did);
-      this.permissionReceived = true;
     } catch (error) {
       console.log('Failed to request permission:', error);
     }
+
+    this.permissionReceived = true;
   }
 
   // Issue and sign credential
@@ -67,7 +69,8 @@ export class KnownCustomerCredentialComponent {
         from: this.did,
         message: {
           filter: {
-            schema: 'https://vc-to-dwn.tbddev.org/vc-protocol/schema/credential',
+            schema:
+              'https://vc-to-dwn.tbddev.org/vc-protocol/schema/credential',
             dataFormat: 'application/vc+jwt',
           },
         },
@@ -85,7 +88,8 @@ export class KnownCustomerCredentialComponent {
       const { records } = await this.dwnService.dwn.records.query({
         message: {
           filter: {
-            schema: 'https://vc-to-dwn.tbddev.org/vc-protocol/schema/credential',
+            schema:
+              'https://vc-to-dwn.tbddev.org/vc-protocol/schema/credential',
             dataFormat: 'application/vc+jwt',
           },
         },
