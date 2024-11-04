@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cryptocurrency-app": {
+    "kcc-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -50,7 +50,7 @@
                 "externals": "replace"
               }
             },
-            "outputPath": "dist/cryptocurrency-app",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js", "@angular/localize/init"],
@@ -68,13 +68,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "200kb",
+                  "maximumError": "400kb"
                 }
               ],
               "outputHashing": "all"
@@ -91,10 +91,10 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "cryptocurrency-app:build:production"
+              "buildTarget": "kcc-app:build:production"
             },
             "development": {
-              "buildTarget": "cryptocurrency-app:build:development"
+              "buildTarget": "kcc-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,7 +102,7 @@
         "extract-i18n": {
          "builder": "@angular-builders/custom-webpack:extract-i18n",
           "options": {
-            "buildTarget": "cryptocurrency-app:build"
+            "buildTarget": "kcc-app:build"
           }
         },
         "test": {
