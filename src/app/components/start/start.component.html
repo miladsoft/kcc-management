@@ -13,15 +13,14 @@
           mat-raised-button
           color="accent"
           class="mb-4"
-          (click)="onSignUp()"
+          (click)="createAccount()"
         >
-          Sign Up
+          Create Account
         </button>
 
       </form>
     </div>
     <div
-      *ngIf="!isLoggedIn"
       class="form-container sign-in-container"
     >
       <form >
@@ -34,30 +33,14 @@
           mat-raised-button
           color="primary"
           class="mb-5"
-          (click)="onLogIn()"
+          (click)="login()"
         >
-          Sign In
+          Login
         </button>
 
       </form>
     </div>
-    <div
-      *ngIf="isLoggedIn"
-      class="form-container sign-in-container d-flex flex-column justify-content-center p-5 text-center bg-light"
-    >
-      <p>Already signed in.</p>
-      <div>
-        <button
-          mat-raised-button
-          color="accent"
-          [routerLink]="['/dashboard']"
-          class="me-3"
-        >
-          Dashboard
-        </button>
-        <button mat-raised-button (click)="onLogOut()">Log Out</button>
-      </div>
-    </div>
+
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
@@ -65,16 +48,15 @@
             <h1>Welcome Back!</h1>
             <p>To keep connected with us please log in</p>
             <button mat-raised-button color="primary" class="ghost" id="signIn">
-              Sign In
+              Login
             </button>
           </div>
         </div>
         <div class="overlay-panel overlay-right">
           <div class="overlay-content p-3 rounded-5">
             <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start journey with us</p>
-            <button mat-raised-button color="accent" class="ghost" id="signUp">
-              Sign Up
+             <button mat-raised-button color="accent" class="ghost" id="signUp">
+              Create Account
             </button>
           </div>
         </div>

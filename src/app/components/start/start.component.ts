@@ -1,65 +1,48 @@
-import { Component, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, Renderer2, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
- import { DidService } from '../../services/did.service';
-import { SignUp } from '../../models/SignUp.model';
-import { LogIn } from '../../models/LogIn.model';
+import { DidService } from '../../services/did.service';
 import { handleButtonClick } from './start-slider';
+import { Web5 } from '@web5/api';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
 })
-export class StartComponent implements AfterViewInit {
-  hide = true;
-  isLoggedIn?: any;
+export class StartComponent implements OnInit , AfterViewInit{
 
-  constructor(
+
+  constructor(private didService: DidService,
     private renderer: Renderer2,
     private el: ElementRef,
     private router: Router,
-     private didService: DidService
+
   ) {
-       this. isLoggedIn = false;
+
 
   }
+
+  ngOnInit(): void {
+  }
+
 
   ngAfterViewInit() {
     handleButtonClick(this.renderer, this.el);
   }
 
-  async onSignUp() {
-    try {
-      const did = await this.didService.createDid();
-      if (did) {
-        alert(`Sign-up successful! Your DID: ${did}`);
-        this.router.navigate(['/dashboard']);
-      }
-    } catch (error) {
-      console.error('Failed to sign up with DID:', error);
-      alert('Sign-up failed. Please try again.');
+
+  async createAccount() {
+    await this.didService.createDid();
+    alert('DID created and saved!');
+  }
+
+  login() {
+    if (this.didService.getDid()) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      alert('No DID found. Please create an account first.');
     }
   }
 
-  async onLogIn() {
-    try {
-      const isAuthenticated = await this.didService.isAuthenticated();
-      if (isAuthenticated) {
-        alert('Login successful!');
-        this.router.navigate(['/dashboard']);
-      } else {
-        alert('Login failed. Please sign up first.');
-      }
-    } catch (error) {
-      console.error('Failed to log in with DID:', error);
-      alert('Login failed. Please try again.');
-    }
-  }
 
-  onLogOut() {
-     this.router.navigate(['/']);
-    alert('You have been logged out.');
-  }
-
- 
 }
