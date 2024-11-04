@@ -1,37 +1,27 @@
 <div class="w-100 mt-3">
   <!-- User -->
   <div class="container-fluid mb-4">
-    <small class="text-secondary">Welcome! You're logged in as:</small>
-
     <div
       class="d-flex flex-column align-items-center justify-content-center mb-5 w-100"
     >
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 512 512"
         height="50%"
         width="50%"
-        fill="url(#myGradient)"
-        class="border border-5 border-light rounded-circle mt-3 shadow"
+        viewBox="0 0 708 708"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <defs>
-          <linearGradient id="myGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color: #283493ce; stop-opacity: 1" />
-            <stop
-              offset="180%"
-              style="stop-color: #e91e62cb; stop-opacity: 1"
-            />
-          </linearGradient>
-        </defs>
+        <circle cx="354" cy="354" r="354" fill="#FFEC19" />
         <path
-          d="M256 288A144 144 0 1 0 256 0a144 144 0 1 0 0 288zm-94.7 32C72.2 320 0 392.2 0 481.3c0 17 13.8 30.7 30.7 30.7H481.3c17 0 30.7-13.8 30.7-30.7C512 392.2 439.8 320 350.7 320H161.3z"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M295.703 275.581V236.75H412.294V275.581H451.331V353.5H490.111V197.663H451.331V158.831H412.294V120H295.703V158.831H256.924V197.663H217.889V353.5H256.778V392.417H295.667V353.5H256.924V275.581H295.703ZM451.222 353.5H412.333V392.417H451.222V353.5ZM412.333 431.333H451.222V470.25H412.333V431.333ZM490.111 470.25H451.222V509.167H490.111V470.25ZM529 509.167H490.111V587H529V509.167ZM334.556 470.25H373.444V587H334.556V470.25ZM412.333 392.417H295.667V431.333H412.333V392.417ZM256.778 431.333H295.667V470.25H256.778V431.333ZM217.889 470.25H256.778V509.167H217.889V470.25ZM179 509.167H217.889V587H179V509.167Z"
+          fill="black"
         />
       </svg>
       <div
         class="text-center bg-light bg-opacity-50 rounded-3 p-3 mt-2 shadow w-100"
-      >
-
-      </div>
+      ></div>
     </div>
 
     <!-- Navbar -->
@@ -45,18 +35,13 @@
           Home
         </a>
         <a
-          routerLink="/dashboard/welcome"
+          routerLink="/dashboard/kcc"
           class="list-group-item list-group-item-action list-group-item-light border"
           aria-current="true"
         >
           About
         </a>
-        <a
-          routerLink="/dashboard/add-crypto"
-          class="list-group-item list-group-item-action list-group-item-light border"
-          >Add Crypto</a
-        >
-        <button
+          <button
           mat-button
           color="accent"
           (click)="onLogOut()"
@@ -70,7 +55,6 @@
     <!-- Websocket -->
     <div
       class="text-center rounded-3 bg-light bg-opacity-50 p-3 mt-5 shadow w-100"
-    >
-     </div>
+    ></div>
   </div>
 </div>

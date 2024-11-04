@@ -20,15 +20,17 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { WelcomeComponent } from './components/dashboard/welcome/welcome.component';
+import { KnownCustomerCredentialComponent } from './components/dashboard/known-customer-credential/known-customer-credential.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({ declarations: [
         AppComponent,
         StartComponent,
         DashboardComponent,
         SidebarComponent,
-        WelcomeComponent,
+        KnownCustomerCredentialComponent,
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
@@ -47,5 +49,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatListModule,
         NgbModule,
         NgxChartsModule,
+
+        CommonModule,
+        MatCardModule,
+
         MatTooltipModule], providers: [provideAnimationsAsync(), provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

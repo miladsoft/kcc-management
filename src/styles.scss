@@ -1,6 +1,6 @@
 @import "bootstrap/scss/bootstrap";
 
- 
+
 // Additional global styles can be added here
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -27,3 +27,7 @@ html {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.pixelify-sans {
+  font-family: "Pixelify Sans", sans-serif !important;
+}

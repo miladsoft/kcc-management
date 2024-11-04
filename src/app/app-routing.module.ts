@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StartComponent } from './components/start/start.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { WelcomeComponent } from './components/dashboard/welcome/welcome.component';
+import { KnownCustomerCredentialComponent } from './components/dashboard/known-customer-credential/known-customer-credential.component';
 
 const routes: Routes = [
   {
@@ -22,8 +22,8 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' }
+      { path: 'kcc', component: KnownCustomerCredentialComponent },
+      { path: '', redirectTo: 'kcc', pathMatch: 'full' }
     ],
   },
 ];
