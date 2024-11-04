@@ -24,6 +24,26 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "static-eval",
+              "uri-js",
+              "canonicalize",
+              "jsbi",
+              "rfdc",
+              "ajv/dist/2020.js",
+              "readable-stream",
+              "crypto",
+              "eciesjs",
+              "lodash/isPlainObject.js",
+              "ms",
+              "readable-web-to-node-stream",
+              "browser-level",
+              "@isaacs/ttlcache",
+              "@sphereon/pex",
+              "jsonschema",
+              "sparse-array",
+              "err-code"
+            ],
             "customWebpackConfig": {
               "path": "./src/webpack.config.js",
               "mergeRules": {
@@ -38,7 +58,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -99,7 +119,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
