@@ -1,0 +1,29 @@
+@import "bootstrap/scss/bootstrap";
+
+ 
+// Additional global styles can be added here
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-title {
+  color: #283593;
+  letter-spacing: 5px !important;
+}
+
+.circle-img:hover {
+  transition: all 3.5s;
+  transform: rotateY(360deg);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
