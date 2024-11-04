@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SignUp } from '../../../models/SignUp.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +7,12 @@ import { Router } from '@angular/router';
   styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent {
-  loggedUser?: SignUp;
   constructor(private router: Router  ) {
 
   }
    onLogOut() {
-    
+
     this.router.navigate(['/logout']);
   }
 }
- //
 
