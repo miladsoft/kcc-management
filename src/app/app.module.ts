@@ -12,7 +12,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AuthService } from './services/auth.service';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,5 +47,5 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatListModule,
         NgbModule,
         NgxChartsModule,
-        MatTooltipModule], providers: [provideAnimationsAsync(), AuthService, provideHttpClient(withInterceptorsFromDi())] })
+        MatTooltipModule], providers: [provideAnimationsAsync(), provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

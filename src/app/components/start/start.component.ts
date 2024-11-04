@@ -1,32 +1,26 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
-import { handleButtonClick } from './start-slider';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as bcrypt from 'bcryptjs';
-import { AuthService } from '../../services/auth.service';
-import { LogIn } from '../../models/LogIn.model';
+ import { DidService } from '../../services/did.service';
 import { SignUp } from '../../models/SignUp.model';
+import { LogIn } from '../../models/LogIn.model';
+import { handleButtonClick } from './start-slider';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
 })
-export class StartComponent {
+export class StartComponent implements AfterViewInit {
   hide = true;
-
-  loggedUser?: any;
+  isLoggedIn?: any;
 
   constructor(
     private renderer: Renderer2,
     private el: ElementRef,
     private router: Router,
-    public authService: AuthService
+     private didService: DidService
   ) {
-    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
-      this.authService.isLoggedIn = isLoggedIn;
-    });
-
+       this. isLoggedIn = false;
 
   }
 
@@ -34,23 +28,38 @@ export class StartComponent {
     handleButtonClick(this.renderer, this.el);
   }
 
-   onSignUp() {
-
+  async onSignUp() {
+    try {
+      const did = await this.didService.createDid();
+      if (did) {
+        alert(`Sign-up successful! Your DID: ${did}`);
+        this.router.navigate(['/dashboard']);
+      }
+    } catch (error) {
+      console.error('Failed to sign up with DID:', error);
+      alert('Sign-up failed. Please try again.');
+    }
   }
 
-   onLogIn() {
-
-            this.router.navigate(['/dashboard']);
-
+  async onLogIn() {
+    try {
+      const isAuthenticated = await this.didService.isAuthenticated();
+      if (isAuthenticated) {
+        alert('Login successful!');
+        this.router.navigate(['/dashboard']);
+      } else {
+        alert('Login failed. Please sign up first.');
+      }
+    } catch (error) {
+      console.error('Failed to log in with DID:', error);
+      alert('Login failed. Please try again.');
+    }
   }
 
   onLogOut() {
-    this.authService.logOut();
-    this.router.navigate(['/logout']);
+     this.router.navigate(['/']);
+    alert('You have been logged out.');
   }
 
-  private getStoredUsers(): SignUp[] {
-    const localUsers = localStorage.getItem('appUsers');
-    return localUsers ? JSON.parse(localUsers) : [];
-  }
+ 
 }

@@ -21,7 +21,7 @@
       </form>
     </div>
     <div
-      *ngIf="!authService.isLoggedIn"
+      *ngIf="!isLoggedIn"
       class="form-container sign-in-container"
     >
       <form >
@@ -42,7 +42,7 @@
       </form>
     </div>
     <div
-      *ngIf="authService.isLoggedIn"
+      *ngIf="isLoggedIn"
       class="form-container sign-in-container d-flex flex-column justify-content-center p-5 text-center bg-light"
     >
       <p>Already signed in.</p>
